@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS `team`;
 
 CREATE TABLE `team` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `number` INT DEFAULT 0,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
   `position` varchar(45) DEFAULT NULL,
@@ -17,5 +18,5 @@ CREATE TABLE `team` (
 
 
 INSERT INTO `team` VALUES
-	(1,'Leslie','Andrews','Goalkeeper', 0, 0, 0, 0),
-	(2,'Emma','Baumgarten','Striker', 3, 0, 12, 3)
+	(1,1,'Leslie','Andrews','Goalkeeper', 0, 0, 0, 0),
+	(2,9,'Emma','Baumgarten','Striker', 3, 0, 12, 3)

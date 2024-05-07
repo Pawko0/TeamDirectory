@@ -11,6 +11,9 @@ public class Player {
     @Column(name = "id")
     private int id;
 
+    @Column(name = "number")
+    private int number;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -109,10 +112,18 @@ public class Player {
         this.assists = assists;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     @Override
     public String toString() {
         return "Player{" +
-                "id=" + id +
+                ", number=" + number +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", position='" + position + '\'' +
