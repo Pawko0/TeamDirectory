@@ -21,68 +21,83 @@
           th:object="${player}" method="post">
         <input type="hidden" th:field="*{id}"/>
 
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+            <tr>
+                <td>Field Name</td>
+                <td>Input</td>
+            </tr>
+            </thead>
+            <tr>
+                <td>Number</td>
+                <td><input type="number" th:field="*{number}" min="1" max="99"/> <span
+                        th:if="${#fields.hasErrors('number')}"
+                        th:errors="*{number}"
+                        class="error"></span></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" th:field="*{firstName}"/>
+                    <span th:if="${#fields.hasErrors('firstName')}"
+                          th:errors="*{firstName}"
+                          class="error"></span></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" th:field="*{lastName}"/>
 
-        Number: <input type="number" th:field="*{number}" min="1" max="99"/>
+                    <span th:if="${#fields.hasErrors('lastName')}"
+                          th:errors="*{lastName}"
+                          class="error"></span></td>
+            </tr>
+            <tr>
+                <td>Position</td>
+                <td><select th:field="*{position}">
 
-        <span th:if="${#fields.hasErrors('number')}"
-              th:errors="*{number}"
-              class="error"></span>
+                    <option th:each="tempPosition : ${positions}" th:value="${tempPosition}"
+                            th:text="${tempPosition}"></option>
 
-        <br><br>
+                </select>
 
-        First Name: <input type="text" th:field="*{firstName}"/>
+                    <span th:if="${#fields.hasErrors('position')}"
+                          th:errors="*{position}"
+                          class="error"></span></td>
+            </tr>
+            <tr>
+                <td>Yellow Cards</td>
+                <td><input type="number" th:field="*{yellowCards}" min="0"/>
 
-        <span th:if="${#fields.hasErrors('firstName')}"
-              th:errors="*{firstName}"
-              class="error"></span>
-        <br><br>
+                    <span th:if="${#fields.hasErrors('yellowCards')}"
+                          th:errors="*{yellowCards}"
+                          class="error"></span></td>
+            </tr>
+            <tr>
+                <td>Red Cards</td>
+                <td><input type="number" th:field="*{redCards}" min="0"/>
 
-        Last Name: <input type="text" th:field="*{lastName}"/>
+                    <span th:if="${#fields.hasErrors('redCards')}"
+                          th:errors="*{redCards}"
+                          class="error"></span></td>
+            </tr>
+            <tr>
+                <td>Goals</td>
+                <td><input type="number" th:field="*{goals}" min="0"/>
 
-        <span th:if="${#fields.hasErrors('lastName')}"
-              th:errors="*{lastName}"
-              class="error"></span>
-        <br><br>
+                    <span th:if="${#fields.hasErrors('goals')}"
+                          th:errors="*{goals}"
+                          class="error"></span></td>
+            </tr>
+            <tr>
+                <td>Assists</td>
+                <td><input type="number" th:field="*{assists}" min="0"/>
+                    <span th:if="${#fields.hasErrors('assists')}"
+                          th:errors="*{assists}"
+                          class="error"></span></td>
+            </tr>
 
-        Position:
-        <select th:field="*{position}">
 
-            <option th:each="tempPosition : ${positions}" th:value="${tempPosition}" th:text="${tempPosition}"></option>
+        </table>
 
-        </select>
-
-        <span th:if="${#fields.hasErrors('position')}"
-              th:errors="*{position}"
-              class="error"></span>
-        <br><br>
-
-        Yellow Cards: <input type="number" th:field="*{yellowCards}" min="0"/>
-
-        <span th:if="${#fields.hasErrors('yellowCards')}"
-              th:errors="*{yellowCards}"
-              class="error"></span>
-        <br><br>
-
-        Red Cards: <input type="number" th:field="*{redCards}" min="0"/>
-
-        <span th:if="${#fields.hasErrors('redCards')}"
-              th:errors="*{redCards}"
-              class="error"></span>
-        <br><br>
-
-        Goals: <input type="number" th:field="*{goals}" min="0"/>
-
-        <span th:if="${#fields.hasErrors('goals')}"
-              th:errors="*{goals}"
-              class="error"></span>
-        <br><br>
-
-        Assists: <input type="number" th:field="*{assists}" min="0"/>
-
-        <span th:if="${#fields.hasErrors('assists')}"
-              th:errors="*{assists}"
-              class="error"></span>
-        <br><br>
 
         <button type="submit" class="btn btn-info col-2">Save</button>
     </form>
