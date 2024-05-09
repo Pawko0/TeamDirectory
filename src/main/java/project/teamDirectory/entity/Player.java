@@ -1,6 +1,9 @@
 package project.teamDirectory.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="team")
@@ -12,27 +15,35 @@ public class Player {
     private int id;
 
     @Column(name = "number")
+    @Min(value = 1, message = "Number range 1-99")
+    @Max(value = 99, message = "Number range 1-99")
     private int number;
 
     @Column(name = "first_name")
+    @NotNull(message = "is required")
     private String firstName;
 
     @Column(name = "last_name")
+    @NotNull(message = "is required")
     private String lastName;
 
     @Column(name = "position")
     private String position;
 
     @Column(name = "yellow_cards")
+    @Min(value = 0, message = "Minimum value is 0")
     private int yellowCards;
 
     @Column(name = "red_cards")
+    @Min(value = 0, message = "Minimum value is 0")
     private int redCards;
 
     @Column(name = "goals")
+    @Min(value = 0, message = "Minimum value is 0")
     private int goals;
 
     @Column(name = "assists")
+    @Min(value = 0, message = "Minimum value is 0")
     private int assists;
 
     public Player() {

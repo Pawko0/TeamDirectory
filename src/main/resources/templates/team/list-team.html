@@ -17,8 +17,8 @@
     <h3>Team Directory</h3>
     <hr>
 
-    <a
-        class="btn btn-primary btn-sm mb-3">
+    <a th:href="@{/team/showFormForAdd}"
+       class="btn btn-primary btn-sm mb-3">
         Add Player
     </a>
 
@@ -39,26 +39,27 @@
         </thead>
         <tbody>
 
-            <tr th:each="tempPlayer : ${players}">
-                <td th:text="${tempPlayer.number}"></td>
-                <td th:text="${tempPlayer.firstName}"></td>
-                <td th:text="${tempPlayer.lastName}"></td>
-                <td th:text="${tempPlayer.position}"></td>
-                <td th:text="${tempPlayer.yellowCards}"></td>
-                <td th:text="${tempPlayer.redCards}"></td>
-                <td th:text="${tempPlayer.goals}"></td>
-                <td th:text="${tempPlayer.assists}"></td>
-                <td>
-                    <a
-                            class="btn btn-info btn-sm">
-                        Update
-                    </a>
-                    <a
-                            class="btn btn-danger btn-sm">
-                        Delete
-                    </a>
-                </td>
-            </tr>
+        <tr th:each="tempPlayer : ${players}">
+            <td th:text="${tempPlayer.number}"></td>
+            <td th:text="${tempPlayer.firstName}"></td>
+            <td th:text="${tempPlayer.lastName}"></td>
+            <td th:text="${tempPlayer.position}"></td>
+            <td th:text="${tempPlayer.yellowCards}"></td>
+            <td th:text="${tempPlayer.redCards}"></td>
+            <td th:text="${tempPlayer.goals}"></td>
+            <td th:text="${tempPlayer.assists}"></td>
+            <td>
+                <a th:href="@{/team/showFormForUpdate(playerId=${tempPlayer.id})}"
+                   class="btn btn-info btn-sm">
+                    Update
+                </a>
+                <a th:href="@{/team/delete(playerId=${tempPlayer.id})}"
+                   class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure?');">
+                    Delete
+                </a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>
