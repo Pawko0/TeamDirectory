@@ -1,7 +1,8 @@
 # Team Directory Application
 
 ## Overview
-This application provides a web interface for managing a team directory. Users can add, update, and delete player entries, viewing a list of all team members with detailed statistics.
+This application provides a web interface for managing a team directory. Users can add, update, and delete player entries, viewing a list of all team members with detailed statistics. 
+Watch demo: https://youtu.be/fszQjEql6PM
 
 ## Features
 
